@@ -537,7 +537,7 @@ class GenericMetaProp(models.Model) :
         Works with the namespace object to allow short forms of metadata to be displayed
     """
     objects = GenericMetaPropManager()
-    namespace = models.ForeignKey(Namespace,blank=True, null=True, verbose_name=_(u'namespace'))
+    namespace = models.ForeignKey(Namespace,blank=True, null=True, on_delete=models.CASCADE, verbose_name=_(u'namespace'))
     propname =  models.CharField(_(u'name'),blank=True,max_length=250,editable=True)
     uri = CURIE_Field(blank=True, unique=True)
     definition  = models.TextField(_(u'definition'), blank=True)
